@@ -1,0 +1,23 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+ name: jobhw
+spec:
+ # schedule: "*/2 * * * *"
+ # jobTemplate:
+  #  spec:
+      template:
+        spec:
+          containers:
+            - name: c1
+              image: busybox
+              command:
+                - sh
+                - -c
+                - |
+                  echo "hello"
+                  mkdir -p hello/hi
+                  echo heyy>> /hello/hi/hey.txt
+                  cat /hello/hi/hey.txt
+                  ls /hello/hi
+          restartPolicy: Never

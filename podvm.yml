@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: podvm
+  labels: 
+   m: mpod
+spec:
+  nodeName: ip-172-31-6-124.ap-south-1.compute.internal
+  containers:
+    - name: conm
+      image: alpine
+      command: ["sleep","2000"]
+      volumeMounts:
+        - name: volm
+          mountPath: /app
+  volumes:
+   - name: volm
+     persistentVolumeClaim:
+       claimName: pvcm
+
+

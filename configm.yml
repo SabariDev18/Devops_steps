@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: configm
+data:
+ file: config_in_master
+ next: secondkey

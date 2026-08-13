@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+ name: pmsec
+spec:
+  nodeName: ip-172-31-10-88.ap-south-1.compute.internal
+  containers:
+   - name: secm
+     image: mysql:8.0
+     env:
+      - name: MYSQL_USER
+        valueFrom:
+         secretKeyRef:
+          name: secretm
+          key: MYSQL_USER
+      - name: MYSQL_PASSWORD
+        valueFrom:
+         secretKeyRef:
+          name: secretm
+          key: MYSQL_PASSWORD
+      - name: MYSQL_ROOT_PASSWORD
+        valueFrom:
+         secretKeyRef:
+          name: secretm
+          key: MYSQL_ROOT_PASSWORD
+   

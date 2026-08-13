@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+   name: podrep
+spec:
+   replicas: 2
+   nodeName: ip-172-31-6-124.ap-south-1.compute.internal
+   containers:
+    - name: container1
+      image: alpine

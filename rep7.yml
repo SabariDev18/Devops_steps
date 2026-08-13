@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: rep7
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      m: mpod
+  template:
+    metadata:
+      labels:
+        m: mpod
+    spec:
+      nodeName: ip-172-31-6-124.ap-south-1.compute.internal
+      containers:
+        - name: depm
+          image: alpine
+          command: ["sleep","1800"]  
+          volumeMounts:
+            - name: volm
+              mountPath: /app
+      volumes:
+        - name: volm
+          persistentVolumeClaim:
+            claimName: pvcm 

@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod3
+spec:
+  nodeName: ip-172-31-0-251.ap-south-1.compute.internal
+  containers:
+   - name: con1
+     image: alpine
+     command: ["sleep","3600"]
+   - name: con2
+     image: alpine
+     command: ["sleep","3600"]

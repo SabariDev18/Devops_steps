@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mpod4
+  # namespace: ops
+
+spec:
+  nodeName: ip-172-31-6-124.ap-south-1.compute.internal
+
+  containers:
+    - name: container1
+      image: python:stable
+      ports:
+        - containerPort: 80
