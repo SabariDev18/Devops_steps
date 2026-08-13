@@ -1,0 +1,12 @@
+---
+ - name: copy
+   hosts: web
+   become: yes
+  
+   tasks:
+    - name: copy
+      copy:
+       dest: /usr/share/nginx/html/index.html
+       content: |
+         "Hostname is {{ansible_hostname}}" <br>
+         "Distribution is {{ansible_distribution}}" 

@@ -1,0 +1,10 @@
+---
+ - name: skip
+   hosts: all
+   become: yes
+
+   tasks:
+    - name: install httpd
+      service:
+       name: httpd     
+      when: ansible_distribution == "Amazon" 

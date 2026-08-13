@@ -1,0 +1,16 @@
+---
+- name: nginx service
+  hosts: local
+  become: yes
+
+
+  tasks:
+   - name: cron
+     cron:
+      #user: kali
+      name: run cron
+      minute: "48"
+      hour: "17"
+     # job: "/home/kali/cronq.sh"
+      job: mkdir "/home/kali/test"
+    # when: inventory_hostname != "local"

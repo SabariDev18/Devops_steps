@@ -1,0 +1,22 @@
+---
+ - name: user
+   hosts: local
+   become: yes
+
+   tasks:
+    - name: user
+      ansible.builtin.user:
+         name: ter
+
+    - name: file
+      file:
+        state: touch
+        path: Downloads/f10.txt
+        mode: '474'
+        group: kali
+
+    - name: cp
+      copy:
+        dest: Downloads/f10.txt
+        content: |
+          Hello

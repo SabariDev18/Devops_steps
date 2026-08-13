@@ -1,0 +1,19 @@
+---
+ - name: User creation
+   hosts: all
+   become: yes
+   #strategy: free
+
+   tasks:
+    - name: user
+      user:
+        name: ops2
+        state: present
+    - name: file
+      file:
+        name: fhw
+        state: touch
+ #  - name: s
+ #    debug:
+      # msg: "Hostname is {{ansible_hostname}}"
+   #    msg: "ansible_facts {{ansible_Networks_ipv4.address}}"

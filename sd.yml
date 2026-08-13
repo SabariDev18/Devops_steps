@@ -1,0 +1,23 @@
+---
+- name: Nginx stop
+  hosts: all
+  become: yes
+  strategy: debug
+
+  tasks:
+   - name: nginx install
+     dnf:
+      name: nginx
+      state: present
+     when: inventory_hostname != "local"
+
+   - name: nginx local
+     apt:
+      name: nginx
+     when: inventory_hostname != "web"
+
+   - name: nginx start
+     service:
+      name: nginx
+      state: started
+      enabled: yes

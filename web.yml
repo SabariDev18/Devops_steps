@@ -1,0 +1,13 @@
+
+---
+ - name: copy
+   hosts: all
+   become: yes
+
+   tasks:
+     - name: cp2
+       copy:
+         dest: /usr/share/nginx/html/index.html
+         content: |
+           "My hsotname is {{ ansible_hostname }}"
+           "Ip {{ ansible_default_ipv4.address }}"

@@ -1,0 +1,38 @@
+---
+- name: nginx service
+  hosts: all
+  become: yes
+  vars: 
+    x: nginx
+
+ # strategy: free
+
+  tasks:
+   - name: install nginx
+     dnf:
+      name: "{{x}}"
+     when: inventory_hostname != "local"
+
+   - name: start
+     service:
+       name: "{{x}}"
+       state: started
+       enabled: yes
+
+   - name: copy
+     copy:
+       src: ./ex2.html
+       dest: /usr/share/nginx/html/index.html
+     notify: restarted
+  handlers:
+   - name: restarted
+     service:
+       name: "{{x}}"
+       state: restarted
+
+
+
+
+ # when: inventory_hostname == "local"
+
+

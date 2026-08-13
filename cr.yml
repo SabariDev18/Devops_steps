@@ -1,0 +1,19 @@
+
+---
+ - name: copy
+   hosts: all
+   become: yes
+
+   tasks:
+     - name: cp2
+       copy:
+         src: ./ex2.html
+         dest: /usr/share/nginx/html/index.html
+       when: ansible_hostname == "ip-172-31-0-131"
+     - name: cp1
+       copy:
+         src: ./ex1.html
+         dest: /usr/share/nginx/html/index.html
+       when: ansible_hostname == "ip-172-31-4-120"
+
+

@@ -1,0 +1,22 @@
+---
+- name: nginx service
+  hosts: all
+  become: yes
+  vars: 
+    x: nginx
+
+ # strategy: free
+
+  tasks:
+   - name: install nginx
+     service:
+      name: "{{x}}"
+      state: stopped
+     when: inventory_hostname != "local"
+     notify: start
+  handlers:
+   - name: start
+     service:
+       name: "{{x}}"
+       state: restarted
+       enabled: yes

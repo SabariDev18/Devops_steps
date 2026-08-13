@@ -1,0 +1,22 @@
+
+---
+ - name: file
+   hosts: local
+   become:  yes
+   strategy: debug
+
+   tasks:
+
+    - name: File
+      file:
+       path: Downloads/t10
+       state: absent
+       group: kali
+       owner: kali
+       mode: '444'
+
+    - name: cp
+      copy:
+       dest: t10
+       content: |
+          hello

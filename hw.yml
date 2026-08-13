@@ -1,0 +1,22 @@
+---
+ - name:  strt
+   hosts: local
+   become: yes
+   vars:
+    x: nginx
+
+   tasks:
+     - name: stop
+       service: 
+         name: "{{x}}"
+         state: stopped
+         enabled: no
+       notify: st
+   handlers:
+     - name: st
+       cron:
+         name: do cron
+         user: kali
+         minute: "01"
+         hour: "12"
+         job: "/home/kali/t.sh"

@@ -1,0 +1,10 @@
+---
+ - name: copy
+   hosts: all
+   become: yes
+  
+   tasks:
+     - name: copy
+       template:
+         src: ./hw3.j2
+         dest: /usr/share/nginx/html/index.html

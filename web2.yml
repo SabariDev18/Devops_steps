@@ -1,0 +1,9 @@
+- name: copy
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: cp2
+      template:
+        src: ./web.j2
+        dest: /usr/share/nginx/html/index.html

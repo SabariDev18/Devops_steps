@@ -1,0 +1,21 @@
+---
+
+- name: File
+  hosts: local
+  become: yes
+
+  tasks:
+   - name: file cr
+     file:
+       name: f10.txt
+       path: /home/kali/Documents/
+       state: touch
+     group: kali
+     mode: '444'
+
+   - name: copying contnt
+     copy:
+       dest: /home/kali/Documents/f10.txt
+     contnet: |
+       Hello
+       Hi
