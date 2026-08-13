@@ -1,0 +1,19 @@
+services:
+  alp:
+   image: alpine
+   container_name: c2
+   cpus: 2
+   mem_limit: 100M
+   command: sleep 1200
+   volumes: 
+     -  vol1:/app
+  al2:
+   image: nginx
+   container_name: c3
+   network_mode: host
+   command: sleep 1200
+   volumes: 
+     -  vol2:/app
+volumes:
+   vol1: 
+   vol2:

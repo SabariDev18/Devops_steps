@@ -1,0 +1,12 @@
+services:
+  mysql:
+   image: mysql
+   container_name: co1
+   command: sleep 1800
+   ports:
+     - "3306:3306"
+   environment:
+     MYSQL_ROOT_PASSWORD: "r123"
+     MYSQL_DATABASE: "mydb1"   
+     MYSQL_USER: "sabari"
+     MYSQL_PASSWORD: "u123"
